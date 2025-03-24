@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',      /* Bleu royal - couleur principale */
+                        secondary: '#f97316',    /* Orange - couleur secondaire */
+                        accent: '#16a34a',       /* Vert - couleur d'accent */
+                        light: '#f8fafc',        /* Blanc cassé - fond */
+                        dark: '#1e293b',         /* Bleu foncé - texte */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light text-dark">
+
+    <!-- Header (Navbar fixée) -->
+    <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+        
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex justify py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+            <div class="text-xl font-bold flex items-center">
+               <img src="blob:https://web.whatsapp.com/be9d9ccc-996f-40e7-a3db-3dd3f9f7c1a4" alt="">
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-300 text-xl"> Accueil</a></li>
+                    <li><a href="temoignage" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+                    <li><a href="mailto:dominadomnia324@gmail.com" class="hover:text-gray-300 text-xl"> Contact</a></li>
+                    <li><a href="a propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
+                    <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="connexion.html">Mon Compte</a></span></li>
+                   
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="hamburger" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-primary text-white py-4">
+        <ul class="space-y-4 text-center">
+            <li><a href="" class="block hover:text-gray-300">Accueil</a></li>
+            <li><a href="a propos.html" class="block hover:text-gray-300">À propos</a></li>
+            <li><a href="mailto:dominadomnia324@gmail.com" class="block hover:text-gray-300">Contact</a></li>
+            <li><a href="./temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+            <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="connexion.html">Mon Compte</a></span></li>
+        </ul>
+    </div>
+
+    <!-- Section de présentation avec image de fond -->
+    <section class="bg-cover bg-center bg-no-repeat text-white p-8 mt-20 h-96 flex justify-center items-center"
+    style='background-image: url("https://images.pexels.com/photos/9090820/pexels-photo-9090820.jpeg?auto=compress&cs=tinysrgb&w=600");'>
+        <div class="bg-dark bg-opacity-70 p-8 text-center w-full max-w-2xl rounded-lg">
+            <h1 class="text-3xl font-semibold mb-4">Aidez des élèves à reprendre les cours !</h1>
+            <p class="text-lg mb-6">Votre soutien peut changer la vie d'un élève. Parrainez ou offrez une bourse pour aider un étudiant à reprendre son parcours scolaire.</p>
+            <div class="space-x-4 flex justify-center">
+                <a href="parainage.html" class="bg-primary hover:bg-blue-700 text-white py-2 px-6 rounded-md transition duration-300">🎓 Parrainer un élève</a>
+                <a href="demande.html" class="bg-secondary hover:bg-orange-700 text-white py-2 px-6 rounded-md transition duration-300">📄 Demander un parrainage</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Mission -->
+    <section id="mission" class="py-16 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-primary">Notre Mission</h2>
+            <p class="mt-4 text-dark max-w-3xl mx-auto text-xl">
+                Créer une communauté solidaire où chacun peut contribuer à offrir un avenir meilleur aux élèves en difficulté.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section de parrainage avec image -->
+    <section class="flex flex-col sm:flex-row justify-center items-center space-x-0 sm:space-x-8 p-8 bg-gray-50">
+        <div class="w-full sm:w-1/2 flex justify-center mt-6 sm:mt-0">
+            <img src="https://images.pexels.com/photos/5905554/pexels-photo-5905554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Parrainage d'élève" class="rounded-md shadow-lg w-3/4 md:w-3/4 h-80 object-cover mx-auto">
+        </div>
+        <div class="w-full sm:w-1/2 text-center sm:text-left">
+            <h2 class="text-2xl font-semibold text-primary">Parrainez un élève</h2>
+            <p class="text-lg mt-4 text-dark">Votre soutien peut transformer la vie d'un élève en lui offrant la chance de poursuivre son éducation. En devenant parrain, vous ne financez pas seulement des études, vous ouvrez la porte à un avenir prometteur, rempli d'opportunités et d'espoir. Ensemble, bâtissons un monde où chaque enfant a les moyens de réussir.</p>
+            <a href="parainage.html" class="bg-primary hover:bg-blue-700 text-white py-2 px-6 mt-6 inline-block rounded-md transition duration-300 w-full sm:w-auto text-center">Voir les élèves à parrainer</a>
+        </div>
+    </section>
+
+    <!-- Section de demande de bourse -->
+    <section class="flex flex-col sm:flex-row justify-center items-center space-x-0 sm:space-x-8 p-8 bg-white">
+        <div class="w-full sm:w-1/2 flex justify-center mt-6 sm:mt-0">
+            <img src="https://media.istockphoto.com/id/1496466238/fr/photo/concept-de-bourse-pi%C3%A8ces-de-monnaie-et-capuchon-de-graduation-sur-table-en-bois-espace-pour.webp?a=1&b=1&s=612x612&w=0&k=20&c=wg9GE4yHg4mYTymzC7BJ-KFy2eYUAgO0eDQO3hQhzgE=" alt="Demande de bourse" class="rounded-md shadow-lg w-3/4 md:w-3/4 h-80 object-cover mx-auto">
+        </div>
+        <div class="w-full sm:w-1/2 text-center sm:text-left">
+            <h2 class="text-2xl font-semibold text-secondary">Demander de parrainage</h2>
+            <p class="text-lg mt-4 text-dark">Donnez une chance aux élèves en difficulté financière de poursuivre leur éducation. Remplissez le formulaire dès maintenant pour postuler à une demande de parrainage et accéder aux opportunités qui changeront votre avenir.</p>
+            <div class="flex justify-center sm:justify-start">
+                <a href="demande.html" class="bg-secondary hover:bg-orange-700 text-white py-2 px-6 mt-6 inline-block rounded-md transition duration-300 w-full sm:w-auto text-center">Demander une bourse</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Témoignages -->
+    <section class="pt-20 pb-12 px-6 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-primary mb-6">Témoignages</h2>
+            <p class="text-lg text-dark mb-12">Découvrez les histoires inspirantes des élèves soutenus par DOMINA.</p>
+            
+            <!-- Témoignage 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6 max-w-3xl mx-auto border-l-4 border-primary">
+                <p class="text-lg italic">"Grâce à DOMINA, j'ai pu reprendre mes études après une année difficile. Merci infiniment !"</p>
+                <h3 class="mt-4 font-semibold text-primary">- Aïcha K., bénéficiaire</h3>
+            </div>
+            
+            <!-- Témoignage 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6 max-w-3xl mx-auto border-l-4 border-secondary">
+                <p class="text-lg italic">"Soutenir un élève avec DOMINA m'a permis d'avoir un réel impact dans la vie de quelqu'un."</p>
+                <h3 class="mt-4 font-semibold text-secondary">- Jean M., parrain</h3>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-6">
+            <!-- Logo DOMINA -->
+            <div class="flex justify-center py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+
+            <!-- Liens et Description -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Colonne 1 : Description -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong></li>
+                        <li><strong>Solidarité communautaire</strong></li>
+                        <li><strong>Impact durable</strong></li>
+                    </ul>
+                </div>
+                <!-- Colonne 2 : Pourquoi soutenir DOMINA ? -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong> : Garantir à chaque enfant un accès à une éducation de qualité.</li>
+                        <li><strong>Solidarité communautaire</strong> : Unir nos forces pour soutenir les élèves dans leur parcours scolaire.</li>
+                        <li><strong>Impact durable</strong> : Des initiatives qui favorisent un changement tangible et mesurable.</li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Contact & Liens sociaux -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Restez connectés</h3>
+                    <p class="text-lg mb-4">Suivez-nous sur nos réseaux sociaux pour rejoindre la communauté et soutenir notre mission.</p>
+
+                    <!-- Bouton de contact -->
+                    <a href="mailto:dominadomnia324@gmail.com" 
+                    class="bg-accent hover:bg-green-700 text-white py-2 px-6 rounded-lg inline-block mb-4 transition duration-300">Nous contacter</a>
+
+                    <!-- Liens sociaux -->
+                    <div class="flex space-x-6 mt-4">
+                        <!-- Bouton de contact -->
+                        <a href="mailto:dominadomina324@gmail.com"></a>
+                        <a href="https://www.instagram.com" 
+                        class="text-white hover:text-pink-200">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://www.twitter.com" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/canidanan-miryam-yeo-73682232a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1GzaCfC5j4/?mibextid=wwXIfr" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ligne de séparation -->
+            <div class="border-t border-blue-400 mt-8 pt-6 text-center">
+                <p class="text-lg">&copy; 2025 DOMINA - Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

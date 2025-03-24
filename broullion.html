@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Parrainage - DOMINA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#2563eb',      /* Bleu royal - couleur principale */
+                    secondary: '#f97316',    /* Orange - couleur secondaire */
+                    accent: '#16a34a',       /* Vert - couleur d'accent */
+                    light: '#f8fafc',        /* Blanc cassé - fond */
+                    dark: '#1e293b',         /* Bleu foncé - texte */
+                }
+            }
+        }
+    }
+</script>
+<body class="bg-light min-h-screen flex flex-col">
+    <!-- Header (Navbar fixée) -->
+    <header class="bg-primary text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-300 text-xl">Accueil</a></li>
+                    <li><a href="temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+                    <li><a href="mailto:dominadomnia324@gmail.com" class="hover:text-gray-300 text-xl">Contact</a></li>
+                    <li><a href="a propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="hamburger" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-primary text-white py-4">
+        <ul class="space-y-4 text-center">
+            <li><a href="index.html" class="block hover:text-gray-300">Accueil</a></li>
+            <li><a href="a propos.html" class="block hover:text-gray-300">À propos</a></li>
+            <li><a href="mailto:dominadomnia324@gmail.com" class="block hover:text-gray-300">Contact</a></li>
+            <li><a href="temoignages.html" class="block hover:text-gray-300">Témoignages</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="flex-grow container mx-auto py-8 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- En-tête du formulaire -->
+            <div class="bg-primary/10 text-dark py-6 px-6 text-center rounded-xl shadow-lg mb-8">
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-wide text-primary">Formulaire de Parrainage</h1>
+                <p class="mt-2 text-lg font-light">Complétez les informations ci-dessous pour finaliser votre parrainage</p>
+            </div>
+
+            <!-- Résumé de l'élève -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h2 class="text-xl font-bold mb-4 text-primary">Élève sélectionné</h2>
+                <div id="resumeEleve" class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                    <div class="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-primary text-4xl"></i>
+                    </div>
+                    <div>
+                        <h3 id="nomEleve" class="text-xl font-bold">Chargement...</h3>
+                        <p id="niveauEleve" class="text-gray-600">Niveau: Chargement...</p>
+                        <p id="histoireEleve" class="text-gray-600 mt-2">Chargement...</p>
+                        <div class="mt-4">
+                            <span class="text-sm text-gray-500">Montant du parrainage:</span>
+                            <p id="montantEleve" class="text-lg font-bold text-secondary">Chargement...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulaire -->
+            <form id="formulaireParrainage" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h2 class="text-xl font-bold mb-6 text-primary">Vos informations</h2>
+                
+                <!-- Informations personnelles -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <label for="prenom" class="block text-gray-700 font-medium mb-2">Prénom <span class="text-red-500">*</span></label>
+                        <input type="text" id="prenom" name="prenom" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="nom" class="block text-gray-700 font-medium mb-2">Nom <span class="text-red-500">*</span></label>
+                        <input type="text" id="nom" name="nom" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="telephone" class="block text-gray-700 font-medium mb-2">Téléphone <span class="text-red-500">*</span></label>
+                        <input type="tel" id="telephone" name="telephone" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="adresse" class="block text-gray-700 font-medium mb-2">Adresse</label>
+                        <input type="text" id="adresse" name="adresse" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="ville" class="block text-gray-700 font-medium mb-2">Ville</label>
+                        <input type="text" id="ville" name="ville" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                </div>
+
+                <!-- Mode de paiement -->
+                <h2 class="text-xl font-bold mb-6 text-primary">Mode de paiement</h2>
+                <div class="mb-8">
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="flex items-center">
+                            <input type="radio" id="momo" name="paiement" value="momo" checked class="mr-2">
+                            <label for="momo" class="text-gray-700">Mobile Money</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="orangemoney" name="paiement" value="orangemoney" class="mr-2">
+                            <label for="orangemoney" class="text-gray-700">Orange Money</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="visa" name="paiement" value="visa" class="mr-2">
+                            <label for="visa" class="text-gray-700">Carte bancaire</label>
+                        </div>
+                    </div>
+
+                    <!-- Champs pour Mobile Money / Orange Money -->
+                    <div id="mobilePaymentFields">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="numeroMobile" class="block text-gray-700 font-medium mb-2">Numéro de téléphone <span class="text-red-500">*</span></label>
+                                <input type="tel" id="numeroMobile" name="numeroMobile" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Champs pour Carte bancaire (masqués par défaut) -->
+                    <div id="cardPaymentFields" class="hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="numeroCarte" class="block text-gray-700 font-medium mb-2">Numéro de carte <span class="text-red-500">*</span></label>
+                                <input type="text" id="numeroCarte" name="numeroCarte" placeholder="0000 0000 0000 0000" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label for="nomCarte" class="block text-gray-700 font-medium mb-2">Nom sur la carte <span class="text-red-500">*</span></label>
+                                <input type="text" id="nomCarte" name="nomCarte" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label for="expiration" class="block text-gray-700 font-medium mb-2">Date d'expiration <span class="text-red-500">*</span></label>
+                                <input type="text" id="expiration" name="expiration" placeholder="MM/AA" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label for="cvv" class="block text-gray-700 font-medium mb-2">CVV <span class="text-red-500">*</span></label>
+                                <input type="text" id="cvv" name="cvv" placeholder="123" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Options de parrainage -->
+                <h2 class="text-xl font-bold mb-6 text-primary">Options de parrainage</h2>
+                <div class="mb-8">
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Type de parrainage</label>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center">
+                                <input type="radio" id="unique" name="typeParrainage" value="unique" checked class="mr-2">
+                                <label for="unique" class="text-gray-700">Ponctuel (une fois)</label
+                                    <input type="radio" id="unique" name="typeParrainage" value="unique" checked class="mr-2">
+                                <label for="unique" class="text-gray-700">Ponctuel (une fois)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="mensuel" name="typeParrainage" value="mensuel" class="mr-2">
+                                <label for="mensuel" class="text-gray-700">Mensuel (récurrent)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="annuel" name="typeParrainage" value="annuel" class="mr-2">
+                                <label for="annuel" class="text-gray-700">Annuel</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <label for="montantPersonnalise" class="block text-gray-700 font-medium mb-2">Montant personnalisé (optionnel)</label>
+                        <div class="flex">
+                            <span class="inline-flex items-center px-3 text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md">
+                                XAF
+                            </span>
+                            <input type="number" id="montantPersonnalise" name="montantPersonnalise" placeholder="Laissez vide pour utiliser le montant standard" class="w-full p-3 border border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <p class="text-sm text-gray-500 mt-1">Le montant standard sera utilisé si aucune valeur n'est saisie</p>
+                    </div>
+                </div>
+
+                <!-- Commentaire et communication -->
+                <h2 class="text-xl font-bold mb-6 text-primary">Communication</h2>
+                <div class="mb-8">
+                    <div class="mb-6">
+                        <label for="commentaire" class="block text-gray-700 font-medium mb-2">Message pour l'élève (optionnel)</label>
+                        <textarea id="commentaire" name="commentaire" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Écrivez un message d'encouragement..."></textarea>
+                    </div>
+                    <div class="flex items-start mt-4">
+                        <input type="checkbox" id="recevoir_nouvelles" name="recevoir_nouvelles" class="mt-1 mr-2">
+                        <label for="recevoir_nouvelles" class="text-gray-700">
+                            Je souhaite recevoir des mises à jour sur les progrès de l'élève parrainé par email
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Conditions et submit -->
+                <div class="border-t border-gray-200 pt-6">
+                    <div class="flex items-start mb-6">
+                        <input type="checkbox" id="conditions" name="conditions" required class="mt-1 mr-2">
+                        <label for="conditions" class="text-gray-700">
+                            J'accepte les <a href="#" class="text-primary hover:underline">conditions générales</a> et la <a href="#" class="text-primary hover:underline">politique de confidentialité</a> <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
+                        Finaliser le parrainage
+                    </button>
+                    <p class="text-center text-sm text-gray-500 mt-4">Votre parrainage sera confirmé par email après validation du paiement</p>
+                </div>
+            </form>
+
+            <!-- FAQ -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-bold mb-6 text-primary">Questions fréquentes</h2>
+                
+                <div class="space-y-4">
+                    <div class="border-b border-gray-200 pb-4">
+                        <h3 class="font-medium text-dark">Comment fonctionne le parrainage ?</h3>
+                        <p class="text-gray-600 mt-2">Le parrainage permet de financer la scolarité et les besoins essentiels d'un élève en difficulté. Votre contribution mensuelle ou ponctuelle est directement utilisée pour payer les frais de scolarité, les fournitures, et parfois l'alimentation et le logement selon les besoins.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-4">
+                        <h3 class="font-medium text-dark">Est-ce que je peux communiquer avec l'élève que je parraine ?</h3>
+                        <p class="text-gray-600 mt-2">Oui, si vous le souhaitez. Vous pouvez échanger des lettres ou des messages via notre équipe. Nous vous enverrons également des mises à jour régulières sur ses progrès scolaires.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-4">
+                        <h3 class="font-medium text-dark">Puis-je arrêter mon parrainage ?</h3>
+                        <p class="text-gray-600 mt-2">Oui, vous pouvez suspendre ou arrêter votre parrainage à tout moment en nous contactant. Cependant, nous vous encourageons à nous prévenir à l'avance pour que nous puissions trouver une solution alternative pour l'élève.</p>
+                    </div>
+                    
+                    <div class="pb-4">
+                        <h3 class="font-medium text-dark">Comment sont utilisés mes dons ?</h3>
+                        <p class="text-gray-600 mt-2">85% de vos dons sont directement alloués aux besoins de l'élève parrainé. Les 15% restants servent à couvrir les frais de fonctionnement de notre organisation, le suivi des élèves et l'administration des programmes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-6">
+            <!-- Logo DOMINA -->
+            <div class="flex justify-center py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+
+            <!-- Liens et Description -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Colonne 1 : Description -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong></li>
+                        <li><strong>Solidarité communautaire</strong></li>
+                        <li><strong>Impact durable</strong></li>
+                    </ul>
+                </div>
+                <!-- Colonne 2 : Pourquoi soutenir DOMINA ? -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong> : Garantir à chaque enfant un accès à une éducation de qualité.</li>
+                        <li><strong>Solidarité communautaire</strong> : Unir nos forces pour soutenir les élèves dans leur parcours scolaire.</li>
+                        <li><strong>Impact durable</strong> : Des initiatives qui favorisent un changement tangible et mesurable.</li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Contact & Liens sociaux -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Restez connectés</h3>
+                    <p class="text-lg mb-4">Suivez-nous sur nos réseaux sociaux pour rejoindre la communauté et soutenir notre mission.</p>
+
+                    <!-- Bouton de contact -->
+                    <a href="mailto:dominadomnia324@gmail.com" 
+                    class="bg-accent hover:bg-green-700 text-white py-2 px-6 rounded-lg inline-block mb-4 transition duration-300">Nous contacter</a>
+
+                    <!-- Liens sociaux -->
+                    <div class="flex space-x-6 mt-4">
+                        <!-- Bouton de contact -->
+                        <a href="mailto:dominadomina324@gmail.com"></a>
+                        <a href="https://www.instagram.com" 
+                        class="text-white hover:text-pink-200">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://www.twitter.com" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/canidanan-miryam-yeo-73682232a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1GzaCfC5j4/?mibextid=wwXIfr" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ligne de séparation -->
+            <div class="border-t border-blue-400 mt-8 pt-6 text-center">
+                <p class="text-lg">&copy; 2025 DOMINA - Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript pour le menu mobile et le formulaire -->
+    <script>
+        // Gestion du menu hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gestion des champs de paiement
+        const momo = document.getElementById('momo');
+        const orangemoney = document.getElementById('orangemoney');
+        const visa = document.getElementById('visa');
+        const mobilePaymentFields = document.getElementById('mobilePaymentFields');
+        const cardPaymentFields = document.getElementById('cardPaymentFields');
+
+        function updatePaymentFields() {
+            if (visa.checked) {
+                mobilePaymentFields.classList.add('hidden');
+                cardPaymentFields.classList.remove('hidden');
+            } else {
+                mobilePaymentFields.classList.remove('hidden');
+                cardPaymentFields.classList.add('hidden');
+            }
+        }
+
+        momo.addEventListener('change', updatePaymentFields);
+        orangemoney.addEventListener('change', updatePaymentFields);
+        visa.addEventListener('change', updatePaymentFields);
+
+        // Simuler les données de l'élève (à remplacer par des données réelles)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Récupérer l'ID de l'élève depuis l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const eleveId = urlParams.get('eleve_id');
+            
+            // Simuler des données d'élève (à remplacer par un appel API)
+            const elevesData = {
+             "1": {
+                nom: "Miryam Yeo",
+                niveau: "5ème",
+                montant: "100 000 F",
+                histoire: "Miryam est une élève talentueuse qui rêve de devenir médecin. Malgré les difficultés financières de sa famille, elle reste déterminée à poursuivre ses études."
+                },
+                "2": {
+                nom: "Aïcha Koné", 
+                niveau: "4ème",
+                montant: "75 000 F",
+                histoire: "Aïcha excelle en mathématiques et en sciences. Elle souhaite devenir ingénieure pour aider à développer sa communauté."
+            },
+                "3": {
+                nom: "Adama Diarra",
+                niveau: "3ème", 
+                montant: "200 000 F",
+                histoire: "Adama est passionné par la littérature et les langues. Il aspire à devenir enseignant pour transmettre son savoir aux générations futures."
+            } 
+            };
+            
+            // Afficher les données de l'élève sélectionné
+            const eleve = elevesData[eleveId] || elevesData["1"]; // Par défaut, prendre le premier élève
+            
+            document.getElementById('nomEleve').textContent = eleve.nom;
+            document.getElementById('niveauEleve').textContent = "Niveau: " + eleve.niveau;
+            document.getElementById('histoireEleve').textContent = eleve.histoire;
+            document.getElementById('montantEleve').textContent = eleve.montant;
+        });
+
+        // Validation du formulaire
+        document.getElementById('formulaireParrainage').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Vérification simple des champs requis
+            const required = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            required.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('border-red-500');
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+            
+            if (isValid) {
+                // Simulation d'envoi (à remplacer par un vrai traitement)
+                alert("Merci pour votre parrainage ! Vous allez être redirigé vers la page de paiement.");
+                // Redirection (à décommenter et personnaliser)
+                // window.location.href = "confirmation.html";
+            } else {
+                alert("Veuillez remplir tous les champs obligatoires.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrainage d'Élèves - DOMINA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#2563eb',      /* Bleu royal - couleur principale */
+                    secondary: '#f97316',    /* Orange - couleur secondaire */
+                    accent: '#16a34a',       /* Vert - couleur d'accent */
+                    light: '#f8fafc',        /* Blanc cassé - fond */
+                    dark: '#1e293b',         /* Bleu foncé - texte */
+                }
+            }
+        }
+    }
+</script>
+<body class="bg-light min-h-screen flex flex-col items-center p-6">
+    <!-- Header (Navbar fixée) -->
+    <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-300 text-xl">Accueil</a></li>
+                    <li><a href="temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+                    <li><a href="mailto:dominadomina324@gmail.com" class="hover:text-gray-300 text-xl">Contact</a></li>
+                    <li><a href="a-propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
+                    <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="connexion.html">Mon Compte</a></span></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="hamburger" class="text-white focus:outline-none" aria-label="Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden fixed top-16 left-0 right-0 bg-primary text-white py-4 z-40">
+        <ul class="space-y-4 text-center">
+            <li><a href="index.html" class="block hover:text-gray-300">Accueil</a></li>
+            <li><a href="a-propos.html" class="block hover:text-gray-300">À propos</a></li>
+            <li><a href="mailto:dominadomina324@gmail.com" class="block hover:text-gray-300">Contact</a></li>
+            <li><a href="temoignages.html" class="block hover:text-gray-300">Témoignages</a></li>
+            <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="connexion.html">Mon Compte</a></span></li>
+        </ul>
+    </div>
+
+    <!-- En-tête de la page de parrainage -->
+    <header class="bg-primary/10 text-dark py-8 px-6 text-center rounded-xl shadow-lg w-full max-w-4xl mt-20">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-wide text-primary">Élèves en attente de parrainage</h1>
+        <p class="mt-2 text-lg font-light">Trouvez un élève à soutenir et changez une vie.</p>
+    </header>
+    
+    <!-- Liste des élèves -->
+    <h2 class="text-4xl font-bold text-center my-8 text-gray-900">Choisissez un élève à parrainer</h2>
+    <!-- Barre de recherche et filtres -->
+    <section class="w-full max-w-4xl mt-6 mb-10 p-6 bg-white rounded-xl shadow-lg">
+        <input id="searchInput" type="text" placeholder="Rechercher un élève..." class="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+        <div class="mt-4 flex flex-wrap gap-4">
+            <select id="niveauFiltre" class="flex-1 min-w-[200px] p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500">
+                <option value="">Niveau scolaire</option>
+                <option value="6eme">6ème</option>
+                <option value="5eme">5ème</option>
+                <option value="4eme">4ème</option>
+                <option value="3eme">3ème</option>
+                <option value="2nde">2nde</option>
+                <option value="1ere">1ère</option>
+                <option value="terminale">Terminale</option>
+            </select>
+            <select id="genreFiltre" class="flex-1 min-w-[200px] p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500">
+                <option value="">Genre</option>
+                <option value="Fille">Fille</option>
+                <option value="Garçon">Garçon</option>
+            </select>
+            <select id="montantFiltre" class="flex-1 min-w-[200px] p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500">
+                <option value="">Montant nécessaire</option>
+                <option value="50000">Moins de 50 000 F</option>
+                <option value="100000">50 000 F - 100 000 F</option>
+                <option value="200000">+ de 100 000 F</option>
+            </select>
+        </div>
+    </section>
+    <div id="elevesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+        
+        <!-- Cartes des élèves -->
+        <div class="eleve bg-white border border-gray-300 shadow-lg p-6 rounded-xl text-center transition-transform transform hover:scale-105 hover:shadow-2xl" data-id="miryam-yeo" data-niveau="5eme" data-genre="Fille" data-montant="100000">
+            <h2 class="text-xl font-bold text-primary">Miryam Yeo</h2>
+            
+            <p class="text-gray-600">Niveau: 5ème</p>
+            <p class="text-gray-600">Genre: Fille</p>
+            <p class="text-gray-600">Âge: 12 ans</p>
+            <div class="mt-4 mb-2">
+                <span class="text-sm text-gray-500">Montant nécessaire:</span>
+                <p class="text-lg font-bold text-secondary">100 000 F</p>
+            </div>
+            <button onclick="ouvrirModal('miryam-yeo')" class="bg-primary text-white px-6 py-3 rounded-md mt-4 hover:opacity-80 transition duration-300">Parrainer</button>
+        </div>
+
+        <div class="eleve bg-white border border-gray-300 shadow-lg p-6 rounded-xl text-center transition-transform transform hover:scale-105 hover:shadow-2xl" data-id="aicha-kone" data-niveau="4eme" data-genre="Fille" data-montant="75000">
+            <h2 class="text-xl font-bold text-primary">Aïcha Koné</h2>
+           
+            <p class="text-gray-600">Niveau: 4ème</p>
+            <p class="text-gray-600">Genre: Fille</p>
+            <p class="text-gray-600">Âge: 14 ans</p>
+            <div class="mt-4 mb-2">
+                <span class="text-sm text-gray-500">Montant nécessaire:</span>
+                <p class="text-lg font-bold text-secondary">75 000 F</p>
+            </div>
+            <button onclick="ouvrirModal('aicha-kone')" class="bg-primary text-white px-6 py-3 rounded-md mt-4 hover:opacity-80 transition duration-300">Parrainer</button>
+        </div>
+
+        <div class="eleve bg-white border border-gray-300 shadow-lg p-6 rounded-xl text-center transition-transform transform hover:scale-105 hover:shadow-2xl" data-id="adama-diarra" data-niveau="3eme" data-genre="Garçon" data-montant="200000">
+            <h2 class="text-xl font-bold text-primary">Adama Diarra</h2>
+            <p class="text-gray-600">Niveau: 3ème</p>
+            <p class="text-gray-600">Genre: Garçon</p>
+            <p class="text-gray-600">Âge: 13 ans</p>
+            <div class="mt-4 mb-2">
+                <span class="text-sm text-gray-500">Montant nécessaire:</span>
+                <p class="text-lg font-bold text-secondary">200 000 F</p>
+            </div>
+            <button onclick="ouvrirModal('adama-diarra')" class="bg-primary text-white px-6 py-3 rounded-md mt-4 hover:opacity-80 transition duration-300">Parrainer</button>
+        </div>
+    </div>
+     <!-- Pagination -->
+     <div class="mt-8 flex justify-center space-x-2 p-3">
+        <button id="prevPage" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300">Précédent</button>
+        <button class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-700 transition duration-300">1</button>
+        <button class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300">2</button>
+        <button class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300">3</button>
+        <button id="nextPage" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition duration-300">Suivant</button>
+    </div>
+
+    <!-- Modal de confirmation -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-primary">Confirmer le parrainage</h2>
+                <button onclick="fermerModal()" class="text-gray-500 hover:text-gray-700" aria-label="Fermer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div id="modalContent">
+                <!-- Contenu dynamique ici -->
+            </div>
+            <div class="flex justify-between mt-6">
+                <button onclick="fermerModal()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition duration-300">Annuler</button>
+                <a href="broullion.html" class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-blue-700 transition duration-300 inline-block">Continuer</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 w-full mt-8">
+        <div class="container mx-auto px-6">
+            <!-- Logo DOMINA -->
+            <div class="flex justify-center items-center py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+
+            <!-- Liens et Description -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li><a href="index.html" class="hover:text-blue-200 transition">Accueil</a></li>
+                        <li><a href="a-propos.html" class="hover:text-blue-200 transition">À propos</a></li>
+                        <li><a href="temoignages.html" class="hover:text-blue-200 transition">Témoignages</a></li>
+                        <li><a href="connexion.html" class="hover:text-blue-200 transition">Mon compte</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong></li>
+                        <li><strong>Solidarité communautaire</strong></li>
+                        <li><strong>Impact durable</strong></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Restez connectés</h3>
+                    <p class="text-lg mb-4">Suivez-nous sur nos réseaux sociaux</p>
+                    <a href="mailto:dominadomina324@gmail.com" 
+                    class="bg-accent hover:bg-green-700 text-white py-2 px-6 rounded-lg inline-block mb-4 transition duration-300">Nous contacter</a>
+                    <div class="flex space-x-6 mt-4">
+                        <a href="#" class="text-white hover:text-blue-200" aria-label="Facebook"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-200" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-200" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-200" aria-label="LinkedIn"><i class="fab fa-linkedin text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-400 mt-8 pt-6 text-center">
+                <p class="text-lg">&copy; 2025 DOMINA - Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Base de données des élèves (normalement stockée sur un serveur)
+        const eleves = {
+            "miryam-yeo": {
+                nom: "Miryam Yeo",
+                niveau: "5ème",
+                montant: "100 000 F",
+                histoire: "Miryam est une élève talentueuse qui rêve de devenir médecin. Malgré les difficultés financières de sa famille, elle reste déterminée à poursuivre ses études."
+            },
+            "aicha-kone": {
+                nom: "Aïcha Koné", 
+                niveau: "4ème",
+                montant: "75 000 F",
+                histoire: "Aïcha excelle en mathématiques et en sciences. Elle souhaite devenir ingénieure pour aider à développer sa communauté."
+            },
+            "adama-diarra": {
+                nom: "Adama Diarra",
+                niveau: "3ème", 
+                montant: "200 000 F",
+                histoire: "Adama est passionné par la littérature et les langues. Il aspire à devenir enseignant pour transmettre son savoir aux générations futures."
+            }
+        };
+
+        let eleveSelectionne = null;
+
+        // Fonction pour ouvrir la modal de confirmation
+        function ouvrirModal(eleveId) {
+            eleveSelectionne = eleveId;
+            const eleve = eleves[eleveId];
+            const modalContent = document.getElementById('modalContent');
+            
+            modalContent.innerHTML = `
+                <div class="text-center mb-4">
+                    <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-user text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800">${eleve.nom}</h3>
+                    <p class="text-gray-600">${eleve.niveau}</p>
+                </div>
+                
+                <p class="mb-4">${eleve.histoire}</p>
+                
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <p class="text-gray-700">Montant du parrainage: <span class="font-bold text-secondary">${eleve.montant}</span></p>
+                    <p class="text-sm text-gray-500 mt-2">En parrainant cet élève, vous contribuez à couvrir ses frais de scolarité, ses fournitures scolaires et ses frais de transport.</p>
+                </div>
+            `;
+            
+            document.getElementById('confirmationModal').classList.remove('hidden');
+        }
+
+        // Fonction pour fermer la modal
+        function fermerModal() {
+            document.getElementById('confirmationModal').classList.add('hidden');
+        }
+
+        // Toggle menu mobile
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Fonctionnalité de recherche et filtrage
+        document.getElementById('searchInput').addEventListener('input', filtrerEleves);
+        document.getElementById('niveauFiltre').addEventListener('change', filtrerEleves);
+        document.getElementById('genreFiltre').addEventListener('change', filtrerEleves);
+        document.getElementById('montantFiltre').addEventListener('change', filtrerEleves);
+
+        function filtrerEleves() {
+            const recherche = document.getElementById('searchInput').value.toLowerCase();
+            const niveau = document.getElementById('niveauFiltre').value;
+            const genre = document.getElementById('genreFiltre').value;
+            const montant = document.getElementById('montantFiltre').value;
+            
+            const cartes = document.querySelectorAll('.eleve');
+            
+            cartes.forEach(carte => {
+                const nomEleve = carte.querySelector('h2').textContent.toLowerCase();
+                const niveauEleve = carte.dataset.niveau;
+                const genreEleve = carte.dataset.genre;
+                const montantEleve = parseInt(carte.dataset.montant);
+                
+                let afficher = true;
+                
+                // Filtre par nom
+                if (recherche && !nomEleve.includes(recherche)) {
+                    afficher = false;
+                }
+                
+                // Filtre par niveau
+                if (niveau && niveauEleve !== niveau) {
+                    afficher = false;
+                }
+                
+                // Filtre par genre
+                if (genre && genreEleve !== genre) {
+                    afficher = false;
+                }
+                
+                // Filtre par montant
+                if (montant) {
+                    if (montant === '50000' && montantEleve >= 50000) {
+                        afficher = false;
+                    } else if (montant === '100000' && (montantEleve < 50000 || montantEleve > 100000)) {
+                        afficher = false;
+                    } else if (montant === '200000' && montantEleve <= 100000) {
+                        afficher = false;
+                    }
+                }
+                
+                carte.style.display = afficher ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Demande de Parrainage - DOMINA</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#2563eb',      /* Bleu royal - couleur principale */
+                            secondary: '#f97316',    /* Orange - couleur secondaire */
+                            accent: '#16a34a',       /* Vert - couleur d'accent */
+                            light: '#f8fafc',        /* Blanc cassé - fond */
+                            dark: '#1e293b',         /* Bleu foncé - texte */
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    
+    <body class="bg-light min-h-screen flex flex-col">
+        <!-- Header (Navbar fixée) -->
+        <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center py-2">
+                    <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                    <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-4">
+                        <li><a href="index.html" class="hover:text-gray-300 text-xl">Accueil</a></li>
+                        <li><a href="temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+                        <li><a href="mailto:dominadomnia324@gmail.com" class="hover:text-gray-300 text-xl">Contact</a></li>
+                        <li><a href="a-propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
+                        <li><a href="connexion.html" class="bg-accent hover:bg-green-700 text-white rounded-lg p-2 text-xl transition duration-300">Connexion</a></li>
+                    </ul>
+                </nav>
+                <div class="md:hidden">
+                    <button id="hamburger" class="text-white focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+    
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-primary text-white py-4 fixed top-16 left-0 right-0 z-40">
+            <ul class="space-y-4 text-center">
+                <li><a href="index.html" class="block hover:text-gray-300 py-2">Accueil</a></li>
+                <li><a href="temoignages.html" class="block hover:text-gray-300 py-2">Témoignages</a></li>
+                <li><a href="mailto:dominadomnia324@gmail.com" class="block hover:text-gray-300 py-2">Contact</a></li>
+                <li><a href="a-propos.html" class="block hover:text-gray-300 py-2">À propos</a></li>
+                <li><a href="connexion.html" class="bg-accent hover:bg-green-700 text-white rounded-lg mx-auto w-32 py-2 block transition duration-300">Connexion</a></li>
+            </ul>
+        </div>
+       
+        <main class="flex items-center justify-center min-h-screen mt-24 mb-12 px-4">
+            <div class="bg-white/30 backdrop-blur-lg p-8 md:p-10 rounded-3xl shadow-2xl w-full max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-center text-primary mb-8">Demande de Parrainage</h1>
+                
+                <form id="bourseForm" class="space-y-6 w-full">
+                    <div>
+                        <label for="nom" class="block text-dark font-semibold text-lg mb-2">Nom & Prénom</label>
+                        <input type="text" id="nom" class="w-full p-4 text-lg border border-gray-300 rounded-lg bg-white/70 text-dark focus:ring-2 focus:ring-primary outline-none transition-all duration-300" placeholder="Votre nom complet" required>
+                    </div>
+                    
+                    <div>
+                        <label for="age" class="block text-dark font-semibold text-lg mb-2">Âge</label>
+                        <input type="number" id="age" class="w-full p-4 text-lg border border-gray-300 rounded-lg bg-white/70 text-dark focus:ring-2 focus:ring-primary outline-none transition-all duration-300" placeholder="Votre âge" min="8" required>
+                    </div>
+                    
+                    <div>
+                        <label for="classe" class="block text-dark font-semibold text-lg mb-2">Classe</label>
+                        <input type="text" id="classe" class="w-full p-4 text-lg border border-gray-300 rounded-lg bg-white/70 text-dark focus:ring-2 focus:ring-primary outline-none transition-all duration-300" placeholder="Ex: 4ème" required>
+                    </div>
+                    
+                    <div>
+                        <label for="montant" class="block text-dark font-semibold text-lg mb-2">Montant demandé</label>
+                        <input type="text" id="montant" pattern="[0-9\s]+" class="w-full p-4 text-lg border border-gray-300 rounded-lg bg-white/70 text-dark focus:ring-2 focus:ring-primary outline-none transition-all duration-300" placeholder="Ex: 50000" required>
+                        <small class="text-gray-600">Entrez uniquement des chiffres</small>
+                    </div>
+                    
+                    <div>
+                        <label for="ecole" class="block text-dark font-semibold text-lg mb-2">École</label>
+                        <input type="text" id="ecole" class="w-full p-4 text-lg border border-gray-300 rounded-lg bg-white/70 text-dark focus:ring-2 focus:ring-primary outline-none transition-all duration-300" placeholder="Nom de votre établissement" required>
+                    </div>
+                    
+                    <div>
+                        <label for="justification" class="block text-dark font-semibold text-lg mb-2">Justification de la demande</label>
+                        <textarea id="justification" class="w-full p-4 text-lg border border-gray-300 rounded-lg bg-white/70 text-dark focus:ring-2 focus:ring-primary outline-none transition-all duration-300" placeholder="Expliquez pourquoi vous avez besoin de ce parrainage" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="file-upload-container">
+                        <label for="dossier" class="block text-dark font-semibold text-lg mb-2">Télécharger dossier</label>
+                        <div class="flex items-center">
+                            <input type="file" id="dossier" class="w-full p-4 text-lg border border-gray-300 rounded-lg bg-white/70 text-dark focus:ring-2 focus:ring-primary outline-none transition-all duration-300" accept=".pdf,.doc,.docx" required>
+                            <button type="button" data-target="dossier" class="supprimer-fichier ml-2 p-2 text-red-500 hover:text-red-700">
+                                <i class="fas fa-times-circle text-2xl"></i>
+                            </button>
+                        </div>
+                        <small class="text-gray-600">Formats acceptés: PDF, DOC, DOCX (max 5MB)</small>
+                    </div>
+                    
+                    <div class="file-upload-container">
+                        <label for="cni" class="block text-dark font-semibold text-lg mb-2">CNI du parent</label>
+                        <div class="flex items-center">
+                            <input type="file" id="cni" class="w-full p-4 text-lg border border-gray-300 rounded-lg bg-white/70 text-dark focus:ring-2 focus:ring-primary outline-none transition-all duration-300" accept=".pdf,.jpg,.jpeg,.png" required>
+                            <button type="button" data-target="cni" class="supprimer-fichier ml-2 p-2 text-red-500 hover:text-red-700">
+                                <i class="fas fa-times-circle text-2xl"></i>
+                            </button>
+                        </div>
+                        <small class="text-gray-600">Formats acceptés: PDF, JPG, JPEG, PNG (max 5MB)</small>
+                    </div>
+                    
+                    <div class="flex flex-col items-center space-y-6 mt-6">
+                        <button type="submit" class="bg-primary hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl font-bold transition-all duration-300 shadow-md"><a href="index.html">Soumettre ma demande</a></button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="bg-primary text-white py-8 w-full mt-auto">
+            <div class="container mx-auto px-6">
+                <!-- Logo DOMINA -->
+                <div class="flex justify-center py-2">
+                    <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                    <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+                </div>
+
+                <!-- Liens et Description -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Colonne 1 : Mission -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Notre mission</h3>
+                        <p class="text-lg mb-4">DOMINA œuvre pour l'accès à l'éducation de qualité pour tous les enfants, particulièrement dans les communautés défavorisées.</p>
+                    </div>
+                    
+                    <!-- Colonne 2 : Pourquoi soutenir DOMINA ? -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                        <ul class="list-inside list-disc space-y-2 text-lg">
+                            <li><strong>Éducation de qualité</strong> : Garantir à chaque enfant un accès à une éducation de qualité.</li>
+                            <li><strong>Solidarité communautaire</strong> : Unir nos forces pour soutenir les élèves dans leur parcours scolaire.</li>
+                            <li><strong>Impact durable</strong> : Des initiatives qui favorisent un changement tangible et mesurable.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Colonne 3 : Contact & Liens sociaux -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Restez connectés</h3>
+                        <p class="text-lg mb-4">Suivez-nous sur nos réseaux sociaux pour rejoindre la communauté et soutenir notre mission.</p>
+
+                        <!-- Bouton de contact -->
+                        <a href="mailto:dominadomnia324@gmail.com" 
+                        class="bg-accent hover:bg-green-700 text-white py-2 px-6 rounded-lg inline-block mb-4 transition duration-300">Nous contacter</a>
+
+                        <!-- Liens sociaux -->
+                        <div class="flex space-x-6 mt-4">
+                            <a href="https://www.instagram.com" class="text-white hover:text-pink-200">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </a>
+                            <a href="https://www.twitter.com" class="text-white hover:text-blue-200">
+                                <i class="fab fa-twitter text-2xl"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/canidanan-miryam-yeo-73682232a" target="_blank" class="text-white hover:text-blue-200">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </a>
+                            <a href="https://www.facebook.com" class="text-white hover:text-blue-200">
+                                <i class="fab fa-facebook text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ligne de séparation -->
+                <div class="border-t border-blue-400 mt-8 pt-6 text-center">
+                    <p class="text-lg">&copy; 2025 DOMINA - Tous droits réservés.</p>
+                </div>
+            </div>
+        </footer>
+    
+        <script>
+            // Mobile menu toggle
+            document.getElementById('hamburger').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Boutons de suppression de fichiers individuels
+            document.querySelectorAll('.supprimer-fichier').forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).value = '';
+                });
+            });
+            
+            // Validation et soumission du formulaire
+            document.getElementById('bourseForm').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                
+                // Validation du montant
+                const montant = document.getElementById('montant').value;
+                if (!/^[0-9\s]+$/.test(montant)) {
+                    alert("Le montant doit contenir uniquement des chiffres");
+                    return false;
+                }
+                
+                // Vérification de la taille des fichiers
+                const maxFileSize = 5 * 1024 * 1024; // 5MB
+                const dossier = document.getElementById('dossier').files[0];
+                const cni = document.getElementById('cni').files[0];
+                
+                if (dossier && dossier.size > maxFileSize) {
+                    alert("Le dossier dépasse la taille maximale autorisée (5MB)");
+                    return false;
+                }
+                
+                if (cni && cni.size > maxFileSize) {
+                    alert("Le fichier CNI dépasse la taille maximale autorisée (5MB)");
+                    return false;
+                }
+                
+                // Création de l'objet avec les données du formulaire
+                try {
+                    let demande = {
+                        nom: document.getElementById('nom').value,
+                        age: document.getElementById('age').value,
+                        classe: document.getElementById('classe').value,
+                        montant: document.getElementById('montant').value,
+                        ecole: document.getElementById('ecole').value,
+                        justification: document.getElementById('justification').value,
+                        dateCreation: new Date().toISOString()
+                    };
+                    
+                    // Récupérer les demandes existantes dans localStorage
+                    let demandes = [];
+                    try {
+                        const existingData = localStorage.getItem('demandesBourse');
+                        if (existingData) {
+                            demandes = JSON.parse(existingData);
+                        }
+                    } catch (e) {
+                        console.error("Erreur lors de la récupération des données:", e);
+                        // Continuer avec un tableau vide
+                    }
+                    
+                    // Ajouter la nouvelle demande
+                    demandes.push(demande);
+                    
+                    // Sauvegarder dans localStorage
+                    localStorage.setItem('demandesBourse', JSON.stringify(demandes));
+                    
+                    alert("Votre demande a été soumise avec succès !");
+                    window.location.href = 'parrainage.html';
+                } catch (e) {
+                    console.error("Erreur lors de la soumission:", e);
+                    alert("Une erreur est survenue lors de la soumission. Veuillez réessayer.");
+                }
+            });
+        </script>
+    </body>
+</html>

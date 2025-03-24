@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - DOMINA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',      /* Bleu royal - couleur principale */
+                        secondary: '#f97316',    /* Orange - couleur secondaire */
+                        accent: '#16a34a',       /* Vert - couleur d'accent */
+                        light: '#f8fafc',        /* Blanc cassé - fond */
+                        dark: '#1e293b',         /* Bleu foncé - texte */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-dark">
+
+    <!-- Header (Navbar fixée) -->
+    <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex py-2">
+                <img src="/api/placeholder/40/40" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:text-gray-300 text-xl">Accueil</a></li>
+                    <li><a href="#" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+                    <li><a href="#" class="hover:text-gray-300 text-xl">Contact</a></li>
+                    <li><a href="#" class="hover:text-gray-300 text-xl">À propos</a></li>
+                    <li><span class="text-white font-bold text-xl"><i class="fas fa-user-circle mr-2"></i>Mon Compte</span></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="hamburger" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="md:hidden hidden bg-primary text-white py-4 fixed w-full z-40">
+        <ul class="space-y-4 text-center">
+            <li><a href="#" class="block hover:text-gray-300">Accueil</a></li>
+            <li><a href="#" class="block hover:text-gray-300">À propos</a></li>
+            <li><a href="#" class="block hover:text-gray-300">Contact</a></li>
+            <li><a href="#" class="block hover:text-gray-300">Témoignages</a></li>
+            <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i>Mon Compte</span></li>
+        </ul>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto pt-28 pb-12 px-4">
+        <!-- Bouton pour basculer entre les vues (pour démonstration) -->
+        <div class="mb-6 flex justify-center">
+            <button id="toggle-role" class="bg-secondary hover:bg-orange-700 text-white py-2 px-6 rounded-md transition duration-300">
+                Changer de vue (Élève/Parrain)
+            </button>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            
+            <!-- Barre latérale -->
+            <aside class="w-full md:w-1/4 bg-white rounded-lg shadow-md p-6 h-fit">
+                <div class="flex items-center space-x-4 mb-8">
+                    <div class="bg-primary rounded-full p-3">
+                        <i class="fas fa-user text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold">Bienvenue</h2>
+                        <p class="text-gray-600" id="user-name">Username</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation du tableau de bord -->
+                <nav>
+                    <ul class="space-y-4">
+                        <li class="p-2 bg-blue-100 rounded-md text-primary font-bold">
+                            <a href="#" class="flex items-center">
+                                <i class="fas fa-tachometer-alt mr-3"></i> Tableau de bord
+                            </a>
+                        </li>
+                        <li class="p-2 hover:bg-blue-50 rounded-md">
+                            <a href="#" class="flex items-center">
+                                <i class="fas fa-user-graduate mr-3"></i> 
+                                <span class="user-role-student">Mes demandes</span>
+                                <span class="user-role-sponsor hidden">Élèves parrainés</span>
+                            </a>
+                        </li>
+                        <li class="p-2 hover:bg-blue-50 rounded-md">
+                            <a href="#" class="flex items-center">
+                                <i class="fas fa-comment-alt mr-3"></i> Messages
+                            </a>
+                        </li>
+                        <li class="p-2 hover:bg-blue-50 rounded-md">
+                            <a href="#" class="flex items-center">
+                                <i class="fas fa-file-alt mr-3"></i> Documents
+                            </a>
+                        </li>
+                        <li class="p-2 hover:bg-blue-50 rounded-md">
+                            <a href="#" class="flex items-center">
+                                <i class="fas fa-cog mr-3"></i> Paramètres
+                            </a>
+                        </li>
+                        <li class="p-2 hover:bg-red-50 rounded-md text-red-600">
+                            <a href="#" class="flex items-center">
+                                <i class="fas fa-sign-out-alt mr-3"></i> Déconnexion
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            
+            <!-- Contenu principal du tableau de bord -->
+            <section class="w-full md:w-3/4 space-y-8">
+                
+                <!-- Vue élève - statut de la demande -->
+                <div class="bg-white rounded-lg shadow-md p-6 user-role-student">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Statut de ma demande</h2>
+                    
+                    <div class="relative">
+                        <!-- Étapes du processus -->
+                        <div class="flex mb-8">
+                            <div class="w-1/4 text-center">
+                                <div class="rounded-full h-12 w-12 flex items-center justify-center bg-primary text-white mx-auto">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="text-sm mt-2">Soumission</div>
+                            </div>
+                            <div class="w-1/4 text-center">
+                                <div class="rounded-full h-12 w-12 flex items-center justify-center bg-primary text-white mx-auto">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="text-sm mt-2">Vérification</div>
+                            </div>
+                            <div class="w-1/4 text-center">
+                                <div class="rounded-full h-12 w-12 flex items-center justify-center bg-blue-200 text-primary mx-auto">
+                                    <i class="fas fa-hourglass-half"></i>
+                                </div>
+                                <div class="text-sm mt-2">Recherche parrain</div>
+                            </div>
+                            <div class="w-1/4 text-center">
+                                <div class="rounded-full h-12 w-12 flex items-center justify-center bg-gray-200 text-gray-500 mx-auto">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="text-sm mt-2">Parrainage actif</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Barre de progression -->
+                        <div class="w-full bg-gray-200 h-2 rounded-full absolute top-6 -z-10">
+                            <div class="bg-primary h-2 rounded-full" style="width: 62.5%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Statut actuel -->
+                    <div class="bg-blue-50 border-l-4 border-primary p-4 rounded-r-md mt-4">
+                        <h3 class="font-bold">Statut actuel: <span class="text-primary">En attente de parrain</span></h3>
+                        <p>Votre demande a été approuvée et est visible pour les parrains potentiels. Nous recherchons actuellement le parrain idéal pour votre profil.</p>
+                    </div>
+                    
+                    <!-- Notifications -->
+                    <div class="mt-6">
+                        <h3 class="font-bold text-lg mb-2">Dernières mises à jour</h3>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p class="text-sm text-gray-500">20 mars 2025</p>
+                                <p>Votre demande a été vérifiée et approuvée.</p>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-md">
+                                <p class="text-sm text-gray-500">15 mars 2025</p>
+                                <p>Votre demande a été soumise avec succès.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vue parrain - élèves parrainés -->
+                <div class="bg-white rounded-lg shadow-md p-6 user-role-sponsor hidden">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Mes parrainages</h2>
+                    
+                    <!-- Onglets pour différentes catégories -->
+                    <div class="border-b border-gray-200 mb-6">
+                        <ul class="flex flex-wrap -mb-px">
+                            <li class="mr-2">
+                                <a href="#" class="inline-block p-4 border-b-2 border-primary text-primary rounded-t-lg active">
+                                    Actifs (2)
+                                </a>
+                            </li>
+                            <li class="mr-2">
+                                <a href="#" class="inline-block p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 rounded-t-lg">
+                                    En attente (1)
+                                </a>
+                            </li>
+                            <li class="mr-2">
+                                <a href="#" class="inline-block p-4 border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 rounded-t-lg">
+                                    Complétés (0)
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Liste des élèves parrainés -->
+                    <div class="space-y-6">
+                        <!-- Élève 1 -->
+                        <div class="flex items-center p-4 bg-white border rounded-lg shadow-sm hover:bg-gray-50">
+                            <div class="h-16 w-16 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 mr-4">
+                                <i class="fas fa-user text-2xl"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 class="font-bold">Konan Marie</h3>
+                                <p class="text-sm text-gray-600">Classe de 3ème, Lycée de Cocody</p>
+                                <div class="flex items-center mt-1">
+                                    <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Parrainage actif</span>
+                                    <span class="text-xs text-gray-500 ml-2">Depuis le 10 janvier 2025</span>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#" class="bg-primary hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm transition duration-300">Voir détails</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Élève 2 -->
+                        <div class="flex items-center p-4 bg-white border rounded-lg shadow-sm hover:bg-gray-50">
+                            <div class="h-16 w-16 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 mr-4">
+                                <i class="fas fa-user text-2xl"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 class="font-bold">Traoré Ibrahim</h3>
+                                <p class="text-sm text-gray-600">Classe de 1ère, Lycée Municipal de Yopougon</p>
+                                <div class="flex items-center mt-1">
+                                    <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Parrainage actif</span>
+                                    <span class="text-xs text-gray-500 ml-2">Depuis le 5 février 2025</span>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#" class="bg-primary hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm transition duration-300">Voir détails</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action pour trouver plus d'élèves -->
+                    <div class="text-center mt-8">
+                        <a href="parainage.html" class="bg-secondary hover:bg-orange-700 text-white py-2 px-6 rounded-md transition duration-300">Parrainer un nouvel élève</a>
+                    </div>
+                </div>
+                
+                <!-- Statistiques communes -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 text-primary mr-4">
+                                <i class="fas fa-calendar-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Durée</p>
+                                <p class="text-xl font-bold user-role-student">8 jours</p>
+                                <p class="text-xl font-bold user-role-sponsor hidden">45 jours</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 user-role-student">Étapes complétées</p>
+                                <p class="text-gray-500 user-role-sponsor hidden">Parrainages actifs</p>
+                                <p class="text-xl font-bold user-role-student">2/4</p>
+                                <p class="text-xl font-bold user-role-sponsor hidden">2</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-indigo-100 text-indigo-600 mr-4">
+                                <i class="fas fa-comment-dots text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Messages</p>
+                                <p class="text-xl font-bold">3 nouveaux</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Prochains événements -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-primary mb-4">Prochains événements</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start p-3 bg-gray-50 rounded-md">
+                            <div class="text-center mr-4">
+                                <p class="text-2xl font-bold text-primary">30</p>
+                                <p class="text-sm">Mars</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Réunion de suivi</h3>
+                                <p class="text-sm">Rencontre virtuelle avec l'équipe DOMINA pour faire le point.</p>
+                                <p class="text-xs text-gray-500 mt-1">14h00 - 15h00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-3 bg-gray-50 rounded-md">
+                            <div class="text-center mr-4">
+                                <p class="text-2xl font-bold text-primary">15</p>
+                                <p class="text-sm">Avril</p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Remise des fournitures scolaires</h3>
+                                <p class="text-sm">Distribution de matériel scolaire pour les élèves parrainés.</p>
+                                <p class="text-xs text-gray-500 mt-1">9h00 - 12h00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 w-full mt-8">
+        <div class="container mx-auto px-6">
+            <!-- Logo DOMINA -->
+            <div class="flex justify-center items-center py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+
+            <!-- Liens et Description -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2 text-lg">
+                        <li><a href="index.html" class="hover:text-blue-200 transition">Accueil</a></li>
+                        <li><a href="a-propos.html" class="hover:text-blue-200 transition">À propos</a></li>
+                        <li><a href="temoignages.html" class="hover:text-blue-200 transition">Témoignages</a></li>
+                        <li><a href="connexion.html" class="hover:text-blue-200 transition">Mon compte</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong></li>
+                        <li><strong>Solidarité communautaire</strong></li>
+                        <li><strong>Impact durable</strong></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Restez connectés</h3>
+                    <p class="text-lg mb-4">Suivez-nous sur nos réseaux sociaux</p>
+                    <a href="mailto:dominadomina324@gmail.com" 
+                    class="bg-accent hover:bg-green-700 text-white py-2 px-6 rounded-lg inline-block mb-4 transition duration-300">Nous contacter</a>
+                    <div class="flex space-x-6 mt-4">
+                        <a href="#" class="text-white hover:text-blue-200" aria-label="Facebook"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-200" aria-label="Twitter"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-200" aria-label="Instagram"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-200" aria-label="LinkedIn"><i class="fab fa-linkedin text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-400 mt-8 pt-6 text-center">
+                <p class="text-lg">&copy; 2025 DOMINA - Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion du menu mobile
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fonction pour basculer entre la vue élève et parrain
+        function toggleUserRole(role) {
+            const studentElements = document.querySelectorAll('.user-role-student');
+            const sponsorElements = document.querySelectorAll('.user-role-sponsor');
+            
+            if (role === 'student') {
+                studentElements.forEach(el => el.classList.remove('hidden'));
+                sponsorElements.forEach(el => el.classList.add('hidden'));
+                document.getElementById('user-name').textContent = 'Konan Pierre (Élève)';
+            } else {
+                studentElements.forEach(el => el.classList.add('hidden'));
+                sponsorElements.forEach(el => el.classList.remove('hidden'));
+                document.getElementById('user-name').textContent = 'Diallo Fatou (Parrain)';
+            }
+        }
+        
+        // Par défaut, afficher la vue élève
+        toggleUserRole('student');
+        
+        // Bouton pour basculer entre les vues
+        document.getElementById('toggle-role').addEventListener('click', () => {
+            const currentRole = document.getElementById('user-name').textContent.includes('Élève') ? 'sponsor' : 'student';
+            toggleUserRole(currentRole);
+        });
+    </script>
+
+</body>
+</html>
