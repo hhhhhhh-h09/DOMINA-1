@@ -24,8 +24,8 @@
     </script>
 </head>
 <body class="bg-light min-h-screen flex flex-col">
-    <!-- Header (Navbar fixée) -->
-    <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+     <!-- Header (Navbar fixée) -->
+     <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center py-2">
                 <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
@@ -34,14 +34,14 @@
             <nav class="hidden md:block">
                 <ul class="flex space-x-4">
                     <li><a href="index.html" class="hover:text-gray-300 text-xl">Accueil</a></li>
-                    <li><a href="temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
-                    <li><a href="mailto:dominadomnia324@gmail.com" class="hover:text-gray-300 text-xl">Contact</a></li>
-                    <li><a href="a propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
-                    <li><span class="text-white text-xl font-bold"><i class="fas fa-user-circle mr-2"></i><a href="connexion.html">Mon Compte</a></span></li>
+                    <li><a href="temoigniage.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+                    <li><a href="mailto:dominadomina324@gmail.com" class="hover:text-gray-300 text-xl">Contact</a></li>
+                    <li><a href="a-propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
+                    <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="suivi.html">Mon Compte</a></span></li>
                 </ul>
             </nav>
             <div class="md:hidden">
-                <button id="hamburger" class="text-white focus:outline-none">
+                <button id="hamburger" class="text-white focus:outline-none" aria-label="Menu">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -50,22 +50,15 @@
         </div>
     </header>
 
-    <!-- Menu mobile (caché par défaut) -->
-    <div id="mobileMenu" class="fixed inset-0 bg-primary bg-opacity-95 z-40 hidden flex flex-col items-center justify-center">
-        <button id="closeMenu" class="absolute top-4 right-4 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-        <nav>
-            <ul class="flex flex-col space-y-6 text-center">
-                <li><a href="index.html" class="text-white text-2xl hover:text-gray-300">Accueil</a></li>
-                <li><a href="temoignages.html" class="text-white text-2xl hover:text-gray-300">Témoignages</a></li>
-                <li><a href="mailto:dominadomnia324@gmail.com" class="text-white text-2xl hover:text-gray-300">Contact</a></li>
-                <li><a href="a propos.html" class="text-white text-2xl hover:text-gray-300">À propos</a></li>
-                <li><a href="connexion.html" class="bg-accent text-white text-2xl px-6 py-2 rounded-lg hover:bg-green-700 transition duration-300">Connexion</a></li>
-            </ul>
-        </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden fixed top-16 left-0 right-0 bg-primary text-white py-4 z-40">
+        <ul class="space-y-4 text-center">
+            <li><a href="index.html" class="block hover:text-gray-300">Accueil</a></li>
+            <li><a href="a-propos.html" class="block hover:text-gray-300">À propos</a></li>
+            <li><a href="mailto:dominadomina324@gmail.com" class="block hover:text-gray-300">Contact</a></li>
+            <li><a href="temoignages.html" class="block hover:text-gray-300">Témoignages</a></li>
+            <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="connexion.html">Mon Compte</a></span></li>
+        </ul>
     </div>
 
     <!-- Contenu principal - Section de connexion agrandie -->
@@ -214,22 +207,77 @@
         </div>
     </div>
 
-    <!-- Footer (Version originale) -->
-    <footer class="bg-dark text-white py-6 mt-auto">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p>© 2025 DOMINA. Tous droits réservés.</p>
-                </div>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-6">
+            <!-- Logo DOMINA -->
+            <div class="flex justify-center py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+
+            <!-- Liens et Description -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Colonne 1 : Description -->
                 <div>
-                    <ul class="flex space-x-4">
-                        <li><a href="#" class="hover:text-gray-300">Mentions légales</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Politique de confidentialité</a></li>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong></li>
+                        <li><strong>Solidarité communautaire</strong></li>
+                        <li><strong>Impact durable</strong></li>
                     </ul>
                 </div>
+                <!-- Colonne 2 : Pourquoi soutenir DOMINA ? -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong> : Garantir à chaque enfant un accès à une éducation de qualité.</li>
+                        <li><strong>Solidarité communautaire</strong> : Unir nos forces pour soutenir les élèves dans leur parcours scolaire.</li>
+                        <li><strong>Impact durable</strong> : Des initiatives qui favorisent un changement tangible et mesurable.</li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Contact & Liens sociaux -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Restez connectés</h3>
+                    <p class="text-lg mb-4">Suivez-nous sur nos réseaux sociaux pour rejoindre la communauté et soutenir notre mission.</p>
+
+                    <!-- Bouton de contact -->
+                    <a href="mailto:dominadomnia324@gmail.com" 
+                    class="bg-accent hover:bg-green-700 text-white py-2 px-6 rounded-lg inline-block mb-4 transition duration-300">Nous contacter</a>
+
+                    <!-- Liens sociaux -->
+                    <div class="flex space-x-6 mt-4">
+                        <!-- Bouton de contact -->
+                        <a href="mailto:dominadomina324@gmail.com"></a>
+                        <a href="https://www.instagram.com" 
+                        class="text-white hover:text-pink-200">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://www.twitter.com" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/canidanan-miryam-yeo-73682232a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1GzaCfC5j4/?mibextid=wwXIfr" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ligne de séparation -->
+            <div class="border-t border-blue-400 mt-8 pt-6 text-center">
+                <p class="text-lg">&copy; 2025 DOMINA - Tous droits réservés.</p>
             </div>
         </div>
     </footer>
+
 
     <script>
         // Gestion du menu mobile

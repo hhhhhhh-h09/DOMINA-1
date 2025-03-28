@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMINA - Parrainage Éducatif</title>
+    
+    <!-- SEO Optimizations -->
+    <meta name="description" content="DOMINA - Soutenez l'éducation des jeunes talents et contribuez à leur avenir">
+    <meta name="keywords" content="parrainage, éducation, solidarité, aide étudiant, bourses">
+    
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="DOMINA - Devenez Parrain">
+    <meta property="og:description" content="Soutenez un élève dans son parcours académique">
+    <meta property="og:type" content="website">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" as="image">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#f97316',
+                        accent: '#16a34a',
+                        light: '#f8fafc',
+                        dark: '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- External CSS File (recommended) -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    @keyframes backgroundSlider {
+        0% { background-image: url('https://i.pinimg.com/736x/5e/87/00/5e8700424201eb225c9a7dea4c3ec7f4.jpg'); }
+        33% { background-image: url('https://i.pinimg.com/736x/92/1b/bf/921bbfabc8b2c8695c9bb9abdcf3d4ee.jpg'); }
+        66% { background-image: url('https://i.pinimg.com/736x/2d/d4/e0/2dd4e02f768f3e52eabd3152d04018e2.jpg'); }
+        100% { background-image: url('https://i.pinimg.com/736x/20/92/83/20928399d28abb40b8f1810375f6cde5.jpg'); }
+    }
+
+    .bg-slider {
+        animation: backgroundSlider 15s infinite ease-in-out;
+        background-size: cover;
+        background-position: center;
+        height: 64vh;
+        position: relative;
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        height: 30%;
+    }
+</style>
+
+<body class="bg-gray-100" x-data="{ mobileMenuOpen: false }">
+   <!-- Nouvelle Navigation Responsive -->
+   <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="Logo DOMINA" class="h-12 mr-4" loading="lazy">
+                <h1 class="text-3xl font-bold">DOMINA</h1>
+            </div>
+            
+            <!-- Menu Desktop -->
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-300 text-xl" aria-label="Accueil">Accueil</a></li>
+                    <li><a href="temoignage" class="hover:text-gray-300 text-xl" aria-label="Témoignages">Témoignages</a></li>
+                    <li><a href="mailto:dominadomnia324@gmail.com" class="hover:text-gray-300 text-xl" aria-label="Contact">Contact</a></li>
+                    <li><a href="a propos.html" class="hover:text-gray-300 text-xl" aria-label="À propos">À propos</a></li>
+                    <li>
+                        <a href="connexion.html" class="text-white font-bold" aria-label="Mon Compte">
+                            <i class="fas fa-user-circle mr-2"></i>Mon Compte
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Menu Mobile -->
+            <div class="md:hidden">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white focus:outline-none" aria-label="Menu mobile">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile Déroulant -->
+        <nav x-show="mobileMenuOpen" class="md:hidden bg-primary">
+            <ul class="px-4 pt-2 pb-4 space-y-2">
+                <li><a href="index.html" class="block hover:bg-blue-700 p-2">Accueil</a></li>
+                <li><a href="temoignage" class="block hover:bg-blue-700 p-2">Témoignages</a></li>
+                <li><a href="mailto:dominadomnia324@gmail.com" class="block hover:bg-blue-700 p-2">Contact</a></li>
+                <li><a href="a propos.html" class="block hover:bg-blue-700 p-2">À propos</a></li>
+                <li><a href="connexion.html" class="block hover:bg-blue-700 p-2">Mon Compte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Reste du code précédent... -->
+
+    <!-- Nouveau formulaire de contact modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+        <div class="bg-white p-8 rounded-lg w-96">
+            <h2 class="text-2xl font-bold mb-4">Contactez-nous</h2>
+            <form id="contactForm" class="space-y-4">
+                <input type="text" placeholder="Nom" required class="w-full p-2 border rounded">
+                <input type="email" placeholder="Email" required class="w-full p-2 border rounded">
+                <textarea placeholder="Votre message" required class="w-full p-2 border rounded h-32"></textarea>
+                <button type="submit" class="bg-primary text-white w-full p-2 rounded hover:bg-blue-700">Envoyer</button>
+                <button type="button" onclick="closeModal()" class="bg-gray-200 w-full p-2 rounded mt-2">Fermer</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script>
+        function openModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.getElementById('contactModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.getElementById('contactModal').classList.remove('flex');
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous répondrons bientôt.');
+            closeModal();
+        });
+    </script>
+</body>
+</html>

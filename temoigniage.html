@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Témoignages - DOMINA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',      /* Bleu royal - couleur principale */
+                        secondary: '#f97316',    /* Orange - couleur secondaire */
+                        accent: '#16a34a',       /* Vert - couleur d'accent */
+                        light: '#f8fafc',        /* Blanc cassé - fond */
+                        dark: '#1e293b',         /* Bleu foncé - texte */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header (Navbar fixée) -->
+    <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex justify py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-300 text-xl"> Accueil</a></li>
+                    <li><a href="temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+                    <li><a href="mailto:dominadomnia324@gmail.com" class="hover:text-gray-300 text-xl"> Contact</a></li>
+                    <li><a href="a propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
+                    <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="suivi.html">Mon Compte</a></span></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="hamburger" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-primary text-white py-4">
+        <ul class="space-y-4 text-center">
+            <li><a href="index.html" class="block hover:text-gray-300">Accueil</a></li>
+            <li><a href="a propos.html" class="block hover:text-gray-300">À propos</a></li>
+            <li><a href="mailto:dominadomnia324@gmail.com" class="block hover:text-gray-300">Contact</a></li>
+            <li><a href="temoignages.html" class="block hover:text-gray-300">Témoignages</a></li>
+            <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="suivi.html">Mon Compte</a></span></li>
+        </ul>
+    </div>
+
+    <!-- Section de Témoignage -->
+    <section class="pt-24 pb-16 px-6 bg-gray-50 min-h-screen">
+        <div class="container mx-auto max-w-2xl">
+            <h1 class="text-4xl font-bold text-primary text-center mb-8">Partagez Votre Témoignage</h1>
+            
+            <form id="testimonial-form" class="bg-white p-8 rounded-lg shadow-md">
+                <div class="mb-6">
+                    <label for="name" class="block text-dark font-semibold mb-2">Votre Nom <span class="text-secondary">*</span></label>
+                    <input type="text" id="name" name="name" required 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="role" class="block text-dark font-semibold mb-2">Votre Rôle <span class="text-secondary">*</span></label>
+                    <select id="role" name="role" required 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="">Sélectionnez votre rôle</option>
+                        <option value="eleve">Élève</option>
+                        <option value="parrain">Parrain</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="testimonial" class="block text-dark font-semibold mb-2">Votre Témoignage <span class="text-secondary">*</span></label>
+                    <textarea id="testimonial" name="testimonial" rows="5" required 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Partagez votre expérience avec DOMINA..."></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="consent" name="consent" required 
+                        class="mr-2 focus:ring-primary h-4 w-4 text-primary border-gray-300 rounded">
+                        <span class="text-dark">J'accepte que mon témoignage soit publié sur le site</span>
+                    </label>
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" 
+                    class="bg-primary hover:bg-blue-700 text-white py-3 px-8 rounded-lg text-xl transition duration-300 inline-block">
+                        Soumettre mon témoignage
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer (identique à la page d'accueil) -->
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-6">
+            <!-- Logo DOMINA -->
+            <div class="flex justify-center py-2">
+                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
+            </div>
+
+            <!-- Liens et Description -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Colonne 1 : Description -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Pourquoi soutenir notre mission ?</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong></li>
+                        <li><strong>Solidarité communautaire</strong></li>
+                        <li><strong>Impact durable</strong></li>
+                    </ul>
+                </div>
+                <!-- Colonne 2 : Pourquoi soutenir DOMINA ? -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Nos valeurs</h3>
+                    <ul class="list-inside list-disc space-y-2 text-lg">
+                        <li><strong>Éducation de qualité</strong> : Garantir à chaque enfant un accès à une éducation de qualité.</li>
+                        <li><strong>Solidarité communautaire</strong> : Unir nos forces pour soutenir les élèves dans leur parcours scolaire.</li>
+                        <li><strong>Impact durable</strong> : Des initiatives qui favorisent un changement tangible et mesurable.</li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Contact & Liens sociaux -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Restez connectés</h3>
+                    <p class="text-lg mb-4">Suivez-nous sur nos réseaux sociaux pour rejoindre la communauté et soutenir notre mission.</p>
+
+                    <!-- Bouton de contact -->
+                    <a href="mailto:dominadomnia324@gmail.com" 
+                    class="bg-accent hover:bg-green-700 text-white py-2 px-6 rounded-lg inline-block mb-4 transition duration-300">Nous contacter</a>
+
+                    <!-- Liens sociaux -->
+                    <div class="flex space-x-6 mt-4">
+                        <a href="https://www.instagram.com" 
+                        class="text-white hover:text-pink-200">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://www.twitter.com" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/canidanan-miryam-yeo-73682232a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1GzaCfC5j4/?mibextid=wwXIfr" 
+                        class="text-white hover:text-blue-200">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ligne de séparation -->
+            <div class="border-t border-blue-400 mt-8 pt-6 text-center">
+                <p class="text-lg">&copy; 2025 DOMINA - Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form Submission Handling
+        const form = document.getElementById('testimonial-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const name = document.getElementById('name').value.trim();
+            const role = document.getElementById('role').value;
+            const testimonial = document.getElementById('testimonial').value.trim();
+            const consent = document.getElementById('consent').checked;
+
+            if (!name || !role || !testimonial || !consent) {
+                alert('Veuillez remplir tous les champs et accepter les conditions.');
+                return;
+            }
+
+            // Here you would typically send the data to a server
+            // For now, we'll just show an alert
+            alert('Merci pour votre témoignage ! Nous le examinerons bientôt.');
+            form.reset();
+        });
+    </script>
+</body>
+</html>

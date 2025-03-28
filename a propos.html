@@ -24,46 +24,42 @@
 </head>
 <body class="bg-slate-50 text-gray-900">
 
-    <!-- Header (Navbar fixée) -->
-    <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
-        
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex justify py-2">
-                <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
-                <h1 class="text-3xl font-bold p-2">DOMINA</h1>
-            </div>
-            <div class="text-xl font-bold flex items-center">
-               <img src="blob:https://web.whatsapp.com/be9d9ccc-996f-40e7-a3db-3dd3f9f7c1a4" alt="">
-            </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-4">
-                    <li><a href="index.html" class="hover:text-gray-300 text-xl"> Accueil</a></li>
-                    <li><a href="temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
-                    <li><a href="mailto:dominadomnia324@gmail.com" class="hover:text-gray-300 text-xl"> Contact</a></li>
-                    <li><a href="a propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
-                    <button class="bg-accent hover:bg-green-700 text-white rounded-lg p-1 text-xl transition duration-300"><a href="connexion.html">Connexion</a></button>
-                </ul>
-            </nav>
-            <div class="md:hidden">
-                <button id="hamburger" class="text-white focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+   <!-- Header (Navbar fixée) -->
+   <header class="bg-primary text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center py-2">
+            <img src="WhatsApp Image 2025-03-03 at 19.26.02.jpeg" alt="DOMINA Logo" class="h-12">
+            <h1 class="text-3xl font-bold p-2">DOMINA</h1>
         </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-primary text-white py-4">
-        <ul class="space-y-4 text-center">
-            <li><a href="" class="block hover:text-gray-300">Accueil</a></li>
-            <li><a href="a propos.html" class="block hover:text-gray-300">À propos</a></li>
-            <li><a href="mailto:dominadomnia324@gmail.com" class="block hover:text-gray-300">Contact</a></li>
-            <li><a href="temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
-            <button class="bg-accent hover:bg-green-700 text-white rounded-lg p-1 transition duration-300"><a href="connexion.html">Connexion</a></button>
-        </ul>
+        <nav class="hidden md:block">
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:text-gray-300 text-xl">Accueil</a></li>
+                <li><a href="temoignages.html" class="hover:text-gray-300 text-xl">Témoignages</a></li>
+                <li><a href="mailto:dominadomina324@gmail.com" class="hover:text-gray-300 text-xl">Contact</a></li>
+                <li><a href="a-propos.html" class="hover:text-gray-300 text-xl">À propos</a></li>
+                <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="connexion.html">Mon Compte</a></span></li>
+            </ul>
+        </nav>
+        <div class="md:hidden">
+            <button id="hamburger" class="text-white focus:outline-none" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
     </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden hidden fixed top-16 left-0 right-0 bg-primary text-white py-4 z-40">
+    <ul class="space-y-4 text-center">
+        <li><a href="index.html" class="block hover:text-gray-300">Accueil</a></li>
+        <li><a href="a-propos.html" class="block hover:text-gray-300">À propos</a></li>
+        <li><a href="mailto:dominadomina324@gmail.com" class="block hover:text-gray-300">Contact</a></li>
+        <li><a href="temoignages.html" class="block hover:text-gray-300">Témoignages</a></li>
+        <li><span class="text-white font-bold"><i class="fas fa-user-circle mr-2"></i><a href="connexion.html">Mon Compte</a></span></li>
+    </ul>
+</div>
  <main class="p-4">
 
     <!-- Section À Propos -->
